@@ -10,5 +10,12 @@ const config: Config = {
     themes:["light","dark","garden","black"],
   },
   plugins: [require('daisyui')],
+  theme: {
+    extend: {
+      colors: {
+        brand: '#0066ff',
+      },
+    },
+  },
 };
 export default config;
