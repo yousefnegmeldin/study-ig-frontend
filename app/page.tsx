@@ -1,59 +1,22 @@
 // app/waitlist/page.tsx
-'use client';
+"use client";
 
-import { useState, FormEvent } from 'react';
-
+import ModalJoin from "./_waitlist_ui/ModalJoin";
+import Image from "next/image";
+import TESTLOGO from "../public/testlogo.png";
 const Waitlist = () => {
-  const [name, setName] = useState<string>('');
-  const [email, setEmail] = useState<string>('');
-  const [message, setMessage] = useState<string>('');
-
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-
-    const res = await fetch('/api/waitlist', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ name, email }),
-    });
-
-    if (res.ok) {
-      setMessage('Successfully joined the waitlist!');
-      setName('');
-      setEmail('');
-    } else {
-      setMessage('Failed to join the waitlist. Please try again.');
-    }
-  };
-
   return (
-    <div>
-      <h1>Join the Waitlist</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Email:
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit">Join Waitlist</button>
-      </form>
-      {message && <p>{message}</p>}
-    </div>
+    <main className="w-screen h-screen flex flex-col backdrop-blur-lg p-16 items-center gap-10 bg-gradient-to-t from-brand to-slate-50 to-20%">
+      <div className="bg-slate-300 p-8 rounded-full shadow-2xl border-gray-400 border-4">
+        <h1 className="text-7xl text-brand font-extrabold">Study IG</h1>
+      </div>
+      <Image src={TESTLOGO} alt="logo" width={300} />
+      <div className="flex flex-col justify-center items-center">
+        <h2 className="text-4xl">Your all in one place for all kinds of IG stuff!</h2>
+        <h3 className="text-2xl">join us now!</h3>
+        <ModalJoin />
+      </div>
+    </main>
   );
 };
 

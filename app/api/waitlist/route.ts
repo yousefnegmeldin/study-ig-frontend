@@ -12,20 +12,28 @@ if (!uri) {
 const client = new MongoClient(uri, options);
 const clientPromise = client.connect();
 
+type WaitlistData = {
+  name: string;
+  email: string;
+  content?: string;
+};
+
+
 export async function POST(req: NextRequest) {
   try {
     console.log(req);
     const { name, email,content } = await req.json();
-
-    if (!name || !email || !content) {
+    const data: WaitlistData = { name, email, content };
+    if (!name || !email ) {
       return NextResponse.json({ message: 'Name and email are required' }, { status: 400 });
     }
 
     const client = await clientPromise;
     const db = client.db('waitlistDB');
     const collection = db.collection('waitlist');
-
-    await collection.insertOne({ name, email, content });
+    if(content)
+      data["content"] = content;
+    await collection.insertOne(data);
 
     return NextResponse.json({ message: 'Successfully added to waitlist' }, { status: 200 });
   } catch (error) {
