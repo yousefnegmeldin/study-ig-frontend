@@ -37,7 +37,7 @@ const ModalJoin = () => {
   return (
     <>
       {/* Open the modal using document.getElementById('ID').showModal() method */}
-      <button className="btn" onClick={() => (document.getElementById("my_modal_2") as HTMLDialogElement)?.showModal()}>
+      <button className="btn bg-brand text-white" onClick={() => (document.getElementById("my_modal_2") as HTMLDialogElement)?.showModal()}>
         open modal
       </button>
       <dialog id="my_modal_2" className="modal">
