@@ -1,13 +1,12 @@
 import { useState, FormEvent } from "react";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
 const ModalJoin = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
-  } = useForm();
+  } = useForm<waitlistData>();
   const [loading, setLoading] = useState<boolean>(false);
 
   type waitlistData = {
@@ -16,7 +15,7 @@ const ModalJoin = () => {
     content: string;
   };
 
-  const onSubmit = async (data: waitlistData) => {
+  const onSubmit: SubmitHandler<waitlistData> = async (data) => {
     setLoading(true);
     const res = await fetch("/api/waitlist", {
       method: "POST",
