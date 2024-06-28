@@ -27,7 +27,7 @@ const ModalJoin = () => {
     });
     setLoading(false);
     if (res.ok) {
-      document.getElementById("my_modal_2")?.close();
+      document.getElementById("my_modal_2").close();
       toast.success("Thank you for joining the waitlist!");
     } else {
       toast.error("An error occurred, please try again later.");
@@ -37,8 +37,11 @@ const ModalJoin = () => {
   return (
     <>
       {/* Open the modal using document.getElementById('ID').showModal() method */}
-      <button className="btn bg-brand text-white" onClick={() => (document.getElementById("my_modal_2") as HTMLDialogElement)?.showModal()}>
-        open modal
+      <button
+        className="btn bg-brand text-white animate-bounce"
+        onClick={() => (document.getElementById("my_modal_2") as HTMLDialogElement)?.showModal()}
+      >
+        Join Waitlist
       </button>
       <dialog id="my_modal_2" className="modal">
         <div className="modal-box">
