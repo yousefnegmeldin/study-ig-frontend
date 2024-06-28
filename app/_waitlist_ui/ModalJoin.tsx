@@ -27,6 +27,7 @@ const ModalJoin = () => {
     });
     setLoading(false);
     if (res.ok) {
+      //@ts-ignore
       document.getElementById("my_modal_2").close();
       toast.success("Thank you for joining the waitlist!");
     } else {
