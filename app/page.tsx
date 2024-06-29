@@ -22,14 +22,23 @@ const Waitlist = () => {
       {/* <p className="text-4xl sm:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8">
       Backgrounds
     </p> */}
-      <div className=" z-10 lg:z-1 h-1/3 lg:h-1/2 p-8 shadow-2xl bg-white bg-opacity-40 rounded-lg lg:backdrop-blur-lg border border-white">
-        <h1 className="text-7xl font-bold text-brand">Study IG</h1>
-        <Image alt="logo" src={Book} width={300} />
+      <div className=" z-10 lg:z-1 h-1/3 lg:h-1/2 p-8 shadow-2xl bg-white bg-opacity-40 rounded-lg lg:backdrop-blur-lg border border-white flex flex-col justify-center items-center">
+        <div>
+          <h1 className="text-7xl font-bold text-brand">Study IG</h1>
+          <div className="h-3/4">
+            <Image src={Book} width={300} alt="book" />
+          </div>
+        </div>
       </div>
 
       <div className="z-10 lg:z-1 h-1/2 lg:m-0 m-4 flex flex-col gap-4 lg:w-1/5 justify-center items-center p-8 shadow-2xl bg-white bg-opacity-40 rounded-lg lg:backdrop-blur-lg border border-white">
-        <h2 className="text-4xl font-bold  text-center">Your go-to place for all kinds of IG stuff</h2>
-        <h3 className="text-2xl font-bold text-center my-8">Join the waitlist now for exclusive perks when we launch!</h3>
+        <div>
+          <h2 className="font-bold text-center text-xl 2xl:text-4xl">Your go-to place for all kinds of IG stuff</h2>
+        </div>
+        <div>
+          <h3 className="font-bold text-center text-l 2xl:text-2xl my-4 2xl:my-8 ">Join the waitlist now for exclusive perks when we launch!</h3>
+        </div>
+
         <ModalJoin />
       </div>
     </main>

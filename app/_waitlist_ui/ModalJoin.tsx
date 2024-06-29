@@ -38,7 +38,7 @@ const ModalJoin = () => {
     <>
       {/* Open the modal using document.getElementById('ID').showModal() method */}
       <button
-        className="btn bg-brand text-white animate-bounce"
+        className="btn bg-brand text-white animate-bounce "
         onClick={() => (document.getElementById("my_modal_2") as HTMLDialogElement)?.showModal()}
       >
         Join Waitlist
